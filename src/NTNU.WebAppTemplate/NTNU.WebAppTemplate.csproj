@@ -4,5 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CQRS.Command.Abstractions" Version="1.0.0" />
+    <PackageReference Include="CQRS.Query.Abstractions" Version="1.0.0" />
+  </ItemGroup>
+
 
 </Project>
