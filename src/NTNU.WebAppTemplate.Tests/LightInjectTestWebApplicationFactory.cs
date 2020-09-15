@@ -10,9 +10,7 @@ namespace NTNU.WebAppTemplate.Tests
         private readonly Action<IHostBuilder> configureHost;
 
         public LightInjectWebApplicationFactory(Action<IHostBuilder> configureHost = null)
-        {
-            this.configureHost = configureHost;
-        }
+            => this.configureHost = configureHost;
 
         protected override IHost CreateHost(IHostBuilder hostBuilder)
         {
@@ -24,8 +22,6 @@ namespace NTNU.WebAppTemplate.Tests
     public static class HostBuilderExtensions
     {
         public static IHostBuilder ConfigureTestContainer(this IHostBuilder builder, Action<IServiceRegistry> config)
-        {
-            return builder.ConfigureContainer<IServiceContainer>(container => config(container));
-        }
+            => builder.ConfigureContainer<IServiceContainer>(container => config(container));
     }
 }
