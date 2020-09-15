@@ -6,7 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="CQRS.Command.Abstractions" Version="1.0.0" />
+    <PackageReference Include="CQRS.LightInject" Version="1.2.0" />
     <PackageReference Include="CQRS.Query.Abstractions" Version="1.0.0" />
+    <PackageReference Include="LightInject.Microsoft.Hosting" Version="1.2.1" />
   </ItemGroup>
 
 

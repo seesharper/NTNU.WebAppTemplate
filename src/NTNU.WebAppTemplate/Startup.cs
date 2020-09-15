@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LightInject;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NTNU.WebAppTemplate;
 
 namespace NTNU.WebAppTemlate
 {
@@ -26,6 +28,11 @@ namespace NTNU.WebAppTemlate
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+        }
+
+        public void ConfigureContainer(IServiceContainer serviceContainer)
+        {
+            serviceContainer.RegisterFrom<CompositionRoot>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

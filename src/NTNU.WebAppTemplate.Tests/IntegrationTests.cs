@@ -2,16 +2,16 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
+using LightInject;
+using Microsoft.Extensions.Hosting;
 using NTNU.WebAppTemlate;
 using Xunit;
 
 namespace NTNU.WebAppTemplate.Tests
 {
-    public class UnitTest1
+    public class IntegrationTests : IDisposable
     {
-        private readonly WebApplicationFactory<Program> Factory = new WebApplicationFactory<Program>();
-
+        private readonly LightInjectWebApplicationFactory<Program> Factory = new LightInjectWebApplicationFactory<Program>();
 
         [Fact]
         public async Task ShouldGetWeatherForecast()
@@ -30,5 +30,13 @@ namespace NTNU.WebAppTemplate.Tests
 
             content.Length.Should().Be(5);
         }
+
+        public void Dispose()
+        {
+            Factory.Dispose();
+        }
     }
+
+
+
 }
